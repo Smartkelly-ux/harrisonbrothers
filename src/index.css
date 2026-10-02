@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-navy: #102330;
+    --color-ink: #172027;
+    --color-mineral: #E9F0EE;
+    --color-soft-white: #F8FAF8;
+    --color-aqua: #65C8C4;
+    --color-copper: #B87756;
+    --color-mist: #D7E3E0;
+    --color-line: #B9C9C6;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--color-ink);
+    background-color: var(--color-soft-white);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Sora', 'Space Grotesk', system-ui, sans-serif;
+    letter-spacing: -0.025em;
+  }
+}
+
+/* Custom scrollbar and utility animations */
+@keyframes waterFlow {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes slowPulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.98); }
+  50% { opacity: 0.7; transform: scale(1.02); }
+}
+
+@keyframes gridFloat {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+.animate-water-flow {
+  animation: waterFlow 3s ease-in-out infinite;
+}
+
+.animate-slow-pulse {
+  animation: slowPulse 4s ease-in-out infinite;
+}
+
+.bg-utility-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(185, 201, 198, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(185, 201, 198, 0.12) 1px, transparent 1px);
+}
+
+.bg-dark-grid {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(101, 200, 196, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(101, 200, 196, 0.08) 1px, transparent 1px);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
